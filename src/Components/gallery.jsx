@@ -30,11 +30,13 @@ function HornedBeast ({title, imageUrl, description, onBeastClick}) {
 }
 
 // Gallery component
-function Gallery({onBeastClick}) {
+function Gallery({onBeastClick, filterFunction}) {
+  const filteredBeasts = filterFunction ? Beasts.filter(filterFunction) : Beasts;
+  
   return(
     <Container>
       <Row>
-        {Beasts.map((beast, index) =>(
+        {filteredBeasts.map((beast, index) =>(
           <Col key={index} md={4}>
             <HornedBeast
             onBeastClick={() => onBeastClick(beast)}
