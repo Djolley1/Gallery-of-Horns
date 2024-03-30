@@ -4,11 +4,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import React from 'react';
-import Beasts from './data.json';
+// import Beasts from './data.json';
 import HornedBeast from './Hornedbeast';
 
 // Gallery component
-function Gallery({onBeastClick, filterFunction}) {
+function Gallery({onBeastClick, filterFunction, Beasts, handleVotes}) {
   const filteredBeasts = filterFunction ? Beasts.filter(filterFunction) : Beasts;
 
   return(
@@ -21,6 +21,8 @@ function Gallery({onBeastClick, filterFunction}) {
             title={beast.title}
             imageUrl={beast.image_url}
             description= {beast.description}
+            votes={beast.votes}
+            handleVotes={handleVotes}
             />
           </Col>
         ))}
